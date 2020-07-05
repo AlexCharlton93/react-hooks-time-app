@@ -1,8 +1,8 @@
 export const getServerTime = async(request) => {
 
-    const time = '00:00:00';
+    const time = new Date().getTime() / 1000;
 
     return {
-        time,
+        epoch: time
     };
 };
