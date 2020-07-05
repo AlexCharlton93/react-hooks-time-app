@@ -4,6 +4,8 @@ import logger from 'morgan';
 import helmet from 'helmet';
 import compression from 'compression';
 import * as bodyParser from 'body-parser';
+import cors from 'cors';
+import promMid from 'express-prometheus-middleware';
 import { setupApp } from './common/setup';
 import { config } from './common/config';
 import { controllerCatch } from './common/errors';
@@ -31,7 +33,14 @@ async function initApp() {
 		}),
     );
     
-    app.use(compression());
+	app.use(compression());
+	app.use(cors());
+	
+	app.use(promMid({
+		metricsPath: '/metrics',
+		collectDefaultMetrics: true,
+		requestDurationBuckets: [0.1, 0.5, 1, 1.5],
+	  }));
 
     // eslint-disable-next-line no-unused-vars
 	app.use((err, request, response, next) => controllerCatch(err, request, response));
