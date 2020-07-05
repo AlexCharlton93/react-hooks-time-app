@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Form, Button } from "react-bootstrap";
 
@@ -25,20 +25,15 @@ const HeaderWrapper = styled.section`
 
 const Submit = async (event, token, setLoggedIn) => {
     event.preventDefault();
-    localStorage.setItem("accessToken", token);
     setLoggedIn(true);
 };
 
 const Logout = async (event, setLoggedIn) => {
     event.preventDefault();
-    localStorage.setItem("accessToken", null);
     setLoggedIn(false);
 };
 
-export default function Header() {
-    const [token, setToken] = useState("");
-    const [loggedIn, setLoggedIn] = useState(false);
-
+export default function Header({token, setToken, loggedIn, setLoggedIn}) {
     return (
         <HeaderWrapper>
             <Form className="float-right">
