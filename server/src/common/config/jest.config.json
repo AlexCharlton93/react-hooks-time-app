@@ -1,0 +1,11 @@
+{
+    "collectCoverageFrom": ["src/**/*.js"],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "index.js"
+    ],
+    "rootDir": "../",
+    "testEnvironment": "node",
+    "testRegex": "/src/.*.spec\\.js$"
+  }
+  

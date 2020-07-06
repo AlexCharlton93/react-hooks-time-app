@@ -1,4 +1,4 @@
-export const getServerTime = async(request) => {
+export const getServerTime = async() => {
 
     const time = new Date().getTime() / 1000;
 

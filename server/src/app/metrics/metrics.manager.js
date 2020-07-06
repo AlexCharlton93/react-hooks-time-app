@@ -1,4 +1,4 @@
-export const getMetrics = async(request) => {
+export const getMetrics = async() => {
 
     const metrics = {};
 

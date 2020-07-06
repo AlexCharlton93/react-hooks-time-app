@@ -1,14 +1,14 @@
-import express from 'express';
-import cookieParser from 'cookie-parser';
-import logger from 'morgan';
-import helmet from 'helmet';
-import compression from 'compression';
-import * as bodyParser from 'body-parser';
-import cors from 'cors';
-import promMid from 'express-prometheus-middleware';
-import { setupApp } from './common/setup';
-import { config } from './common/config';
-import { controllerCatch } from './common/errors';
+import express from "express";
+import cookieParser from "cookie-parser";
+import logger from "morgan";
+import helmet from "helmet";
+import compression from "compression";
+import * as bodyParser from "body-parser";
+import cors from "cors";
+import promMid from "express-prometheus-middleware";
+import { setupApp } from "./common/setup";
+import { config } from "./common/config";
+import { controllerCatch } from "./common/errors";
 
 async function initApp() {
     const app = express();
@@ -16,14 +16,14 @@ async function initApp() {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
 
-    app.use(logger('dev'));
+    app.use(logger("dev"));
     app.use(express.json());
     app.use(cookieParser());
 
     // Remove security risk headers
-	app.disable('x-powered-by');
-	app.disable('etag');
-	app.disable('Server');
+	app.disable("x-powered-by");
+	app.disable("etag");
+	app.disable("Server");
 	app.use(
 		helmet({
 			hsts: {
@@ -37,10 +37,10 @@ async function initApp() {
 	app.use(cors());
 	
 	app.use(promMid({
-		metricsPath: '/metrics',
+		metricsPath: "/metrics",
 		collectDefaultMetrics: true,
 		requestDurationBuckets: [0.1, 0.5, 1, 1.5],
-	  }));
+	}));
 
     // eslint-disable-next-line no-unused-vars
 	app.use((err, request, response, next) => controllerCatch(err, request, response));

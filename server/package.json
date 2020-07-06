@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -r esm src/app.js"
+    "start": "nodemon -r esm src/app.js",
+    "test": "jest --passWithNoTests --config src/common/config/jest.config.json",
+    "test:watch": "npm run test -- --watch"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "eslint": "^7.4.0",
     "esm": "^3.2.25",
+    "jest": "^26.1.0",
     "nodemon": "^2.0.4"
   }
 }

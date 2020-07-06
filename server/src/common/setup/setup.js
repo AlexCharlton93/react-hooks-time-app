@@ -1,5 +1,5 @@
-import { TimeController } from '../../app/time';
-import { MetricsController } from '../../app/metrics';
+import { TimeController } from "../../app/time";
+import { MetricsController } from "../../app/metrics";
 
 const registerControllers = app => {
     TimeController(app);
@@ -8,4 +8,4 @@ const registerControllers = app => {
 
 export const setupApp = async app => {
     registerControllers(app);
-}
+};

@@ -1,5 +1,5 @@
 export const internalMessages = {
-	appNotDefined: 'expressApp is not defined',
+	appNotDefined: "expressApp is not defined",
 };
 
 export const errorTypes = {

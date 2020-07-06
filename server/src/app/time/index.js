@@ -1,2 +1,2 @@
-export * from './time.controller';
-export * from './time.manager';
+export * from "./time.controller";
+export * from "./time.manager";

@@ -28,12 +28,13 @@ const Submit = async (event, token, setLoggedIn) => {
     setLoggedIn(true);
 };
 
-const Logout = async (event, setLoggedIn) => {
+const Logout = async (event, setLoggedIn, setErrorMessage) => {
     event.preventDefault();
     setLoggedIn(false);
+    setErrorMessage(undefined);
 };
 
-export default function Header({token, setToken, loggedIn, setLoggedIn}) {
+export default function Header({token, setToken, loggedIn, setLoggedIn, setErrorMessage}) {
     return (
         <HeaderWrapper>
             <Form className="float-right">
@@ -56,7 +57,7 @@ export default function Header({token, setToken, loggedIn, setLoggedIn}) {
                     </>
                 ) : (
                     <Button
-                        onClick={(e) => Logout(e, setLoggedIn)}
+                        onClick={(e) => Logout(e, setLoggedIn, setErrorMessage)}
                         ariant="primary"
                         type="submit"
                     >

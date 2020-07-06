@@ -6,7 +6,7 @@ import {
 } from "../../common/errors";
 import { timeRoute } from "../../common/routes";
 import { getServerTime } from "./";
-import { requiresAccessToken } from '../../common/middleware';
+import { requiresAccessToken } from "../../common/middleware";
 
 export const TimeController = (app) => {
     if (!app) {
@@ -22,7 +22,7 @@ export const TimeController = (app) => {
 
 const registerRoutes = (app) => {
     app.get(timeRoute, requiresAccessToken, serverTime());
-}
+};
 
 export const serverTime = () => async (request, response) => {
     try {

@@ -6,7 +6,7 @@ import {
 } from "../../common/errors";
 import { metricsRoute } from "../../common/routes";
 import { getMetrics } from "./";
-import { requiresAccessToken } from '../../common/middleware';
+import { requiresAccessToken } from "../../common/middleware";
 
 export const MetricsController = (app) => {
     if (!app) {
@@ -22,7 +22,7 @@ export const MetricsController = (app) => {
 
 const registerRoutes = (app) => {
     app.get(metricsRoute, requiresAccessToken, metrics());
-}
+};
 
 export const metrics = () => async (request, response) => {
     try {

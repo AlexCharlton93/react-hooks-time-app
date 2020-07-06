@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("MetricsController", () => {
     describe("metrics", () => {
         it("Should return status code 200", async () => {

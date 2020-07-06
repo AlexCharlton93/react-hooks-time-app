@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("TimeController", () => {
     describe("serverTime", () => {
         it("Should return status code 200", async () => {
